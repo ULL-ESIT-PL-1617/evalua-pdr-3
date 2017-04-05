@@ -1,0 +1,38 @@
+{
+  "name": "AnalizadorDPR",
+  "version": "1.0.0",
+  "description": "Analizador DPR",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "body-parser": "*",
+    "chai": "*",
+    "del": "*",
+    "ejs": "*",
+    "express": "*",
+    "express-ejs-layouts": "*",
+    "mocha": "latest",
+    "node-sass-middleware": "*",
+    "node-static": "*",
+    "pug": "^0.1.0",
+    "serve-favicon": "^2.4.2",
+    "sinon": "*",
+    "underscore": "*"
+  },
+  "engines": {
+    "node": "7.x"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ULL-ESIT-PL-1617/parser-pdr-example"
+  },
+  "author": "Casiano",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ULL-ESIT-PL-1617/parser-pdr-example/issues"
+  },
+  "homepage": "https://github.com/alu0100204148/analizadordpr"
+}
