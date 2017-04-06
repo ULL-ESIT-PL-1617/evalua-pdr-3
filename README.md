@@ -29,6 +29,15 @@ Tu nuevo lenguaje debe incluir:
 6. Añada expresiones condicionales:  `if 2<a then b else c`  
 7. Modifique las pruebas para que comprueben el buen funcionamiento de su código
 
+### Gramática Inicial
+
+1.  Σ = { ADDOP, MULOP, '(', ')', NUM },
+2.  V = {  comma, expression, term, factor }
+3.  Productions:
+    1.  expression → term ( ADDOP term)* 
+    2.  term → factor (MULOP factor)*
+    3.  factor → '(' expression ')' | NUM
+
 ### Recursos
 
 * [Apuntes de PL: Análisis Sintáctico Predictivo Recursivo](http://crguezl.github.io/pl-html/node22.html)
