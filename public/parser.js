@@ -110,6 +110,30 @@
       }
     };
     
+    assign = function(){
+      var map = [];
+      if(lookahead && lookahead.type === "ID") {
+        id = lookahead.value;
+        match("ID");
+        match("=");
+        value = assign();
+        map.push({id:value});
+        console.log(map);
+      }
+      return comma();
+    }
+    
+    comma = function() {
+      var result = [];
+      result.push(assign());
+      console.log(result);
+      while(lookahead && lookahead.type === ","){
+        match(",");
+        result = expression();
+      }
+      return result[result.length-1];
+    };
+    
     expression = function() {
       var result, right, type;
       result = term();
@@ -127,6 +151,7 @@
       }
       return result;
     };
+    
     term = function() {
       var result, right, type;
       result = factor();
@@ -151,7 +176,7 @@
         match("NUM");
       } else if (lookahead.type === "(") {
         match("(");
-        result = expression();
+        result = assign();
         match(")");
       } else {
         throw "Syntax Error. Expected number or identifier or '(' but found " + (lookahead ? lookahead.value : "end of input") + " near '" + input.substr(lookahead.from) + "'";
@@ -159,7 +184,7 @@
       return result;
     };
 
-    tree = expression(input);
+    tree = assign(input);
     if (lookahead != null) {
       throw "Syntax Error parsing statements. " + "Expected 'end of input' and found '" + input.substr(lookahead.from) + "'";
     }

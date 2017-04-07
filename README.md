@@ -33,12 +33,14 @@ Tu nuevo lenguaje debe incluir:
 
 ### Gramática Inicial
 
-1.  Σ = { ADDOP, MULOP, '(', ')', NUM },
-2.  V = {  comma, expression, term, factor }
+1.  Σ = { ADDOP, MULOP, '(', ')', NUM, ",", ID, '=' },
+2.  V = { assign, comma, expression, term, factor }
 3.  Productions:
-    1.  expression → term ( ADDOP term)* 
-    2.  term → factor (MULOP factor)*
-    3.  factor → '(' expression ')' | NUM
+    1.  assign → ID '=' assign | comma
+    1.  comma → expression (',' expression)*
+    2.  expression → term ( ADDOP term)* 
+    3.  term → factor (MULOP factor)*
+    4.  factor → '(' assign ')' | NUM | ID
 
 ### Recursos
 
