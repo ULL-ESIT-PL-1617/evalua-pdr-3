@@ -97,6 +97,7 @@
 
   var parse = function(input) {
     var condition, expression, factor, lookahead, match, statement, statements, term, tokens, tree;
+    var results = [];
     tokens = input.tokens();
     lookahead = tokens.shift(); 
     match = function(t) {
@@ -110,28 +111,17 @@
       }
     };
     
-    assign = function(){
-      var map = [];
-      if(lookahead && lookahead.type === "ID") {
-        id = lookahead.value;
-        match("ID");
-        match("=");
-        value = assign();
-        map.push({id:value});
-        console.log(map);
-      }
-      return comma();
-    }
-    
+
     comma = function() {
-      var result = [];
-      result.push(assign());
+      var result = expression();
+      results.push(result);
       console.log(result);
       while(lookahead && lookahead.type === ","){
         match(",");
         result = expression();
+        results.push(result);
       }
-      return result[result.length-1];
+      return result;
     };
     
     expression = function() {
@@ -176,7 +166,7 @@
         match("NUM");
       } else if (lookahead.type === "(") {
         match("(");
-        result = assign();
+        result = expression();
         match(")");
       } else {
         throw "Syntax Error. Expected number or identifier or '(' but found " + (lookahead ? lookahead.value : "end of input") + " near '" + input.substr(lookahead.from) + "'";
@@ -184,9 +174,9 @@
       return result;
     };
 
-    tree = assign(input);
+    tree = comma(input);
     if (lookahead != null) {
       throw "Syntax Error parsing statements. " + "Expected 'end of input' and found '" + input.substr(lookahead.from) + "'";
     }
-    return tree;
+    return {result: tree, results: results};
   };
