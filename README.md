@@ -11,7 +11,7 @@ Este repo contiene el código de partida para la práctica de laboratorio
 
 ### Descripción
 
-Este programa extiende la gramática vista en la práctica anterior [EVALUA PDR](https://classroom.github.com/classrooms/19915186-ull-esit-pl-1617/assignments/evalua-pdr-2) con múltiples expresiones separadas por comas:  `2*3, 4+5+2, 8-1`.  La coma es un operador en la mayoría de los lenguajes: `e1, e2` descarta `e1`y retorna `e2`. 
+Este programa extiende la gramática vista en la práctica anterior [EVALUA PDR 2](https://classroom.github.com/classrooms/19915186-ull-esit-pl-1617/assignments/evalua-pdr-2) con múltiples expresiones separadas por comas:  `2*3, 4+5+2, 8-1`.  La coma es un operador en la mayoría de los lenguajes: `e1, e2` descarta `e1`y retorna `e2`. 
 
 Esta es la gramática:
 
@@ -30,7 +30,7 @@ Donde:
             NUM = /\d+/
 
 
-El fichero `README.md` debe contener su gramática final.
+Su fichero `README.md` debe contener su gramática final.
 
 ### Hitos:
 
@@ -47,6 +47,7 @@ Tu nuevo lenguaje debe incluir:
   - Esta operación debería dar un error o no efectuarse:  `true = 0`
 5. Añada expresiones condicionales:  `d = if 2<a then b else c`  
 6. Modifique las pruebas para que comprueben el buen funcionamiento de su código
+7. Su fichero `README.md` debe contener su gramática final.
 
 ### Recursos
 
