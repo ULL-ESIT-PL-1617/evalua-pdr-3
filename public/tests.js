@@ -10,7 +10,7 @@
       var original = parse('4+2, 3');
       assert.deepEqual(original, { result: 3, results: [ 6, 3 ] }, "OK!");
     });
-    test('Multiplications are parsed correctly', () => {
+    test('Multiplications and commas are parsed correctly', () => {
       var result = parse('4*2, 2-1-1');
       console.log(result);
       assert.deepEqual(result, { result: 0, results: [ 8, 0 ] } ,"OK!");
